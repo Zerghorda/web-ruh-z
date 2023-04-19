@@ -1,0 +1,33 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-image: url(kepek/background.jpg);
+  overflow: auto;
+  background-size: cover;
+}
+p {
+  text-align: center;
+}
+.cardImg {
+  align-self: center;
+  height: 400px;
+  width: 300px;
+}
+h2 {
+  text-align: center;
+}
+h4 {
+  text-align: center;
+}
+.smallcard {
+  align-self: center;
+  height: 200px;
+  width: 150px;
+}
+footer {
+  background-color: gray;
+  text-align: center;
+  color: red;
+}
