@@ -3,7 +3,7 @@
   margin: 0;
 }
 body {
-  background-image: url(kepek/background.jpg);
+  background-image: url(./kepek/background.jpg);
   overflow: auto;
   background-size: cover;
 }
