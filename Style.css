@@ -12,11 +12,19 @@ p {
 }
 .cardImg {
   align-self: center;
+}
+.kepcont{
+
   height: 400px;
-  width: 300px;
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
 }
 h2 {
   text-align: center;
+}
+.card-header{
+  height: 90px;
 }
 h4 {
   text-align: center;
