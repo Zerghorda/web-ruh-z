@@ -8,7 +8,7 @@ export const UnitList = [
   {
     Unit: "Death Korps of Krieg",
     darab: 1,
-    kep: "/.kepek/krieg.jpg",
+    kep: "./kepek/krieg.jpg",
     description: "The most fearless and battle hardened soldiers.",
   },
   {
