@@ -168,24 +168,20 @@ function adminfelulet() {
   <h2>Feltöltés</h2>
   <form action="/action_page.php">
     <div class="mb-3 mt-3">
-      <label for="termek">Termék neve:</label>
-      <input type="text" class="form-control" id="termek" placeholder="termék" name="termek">
+      <label for="Units">Units:</label>
+      <input type="text" class="form-control" id="Units" placeholder="Units" name="Units">
     </div>
     <div class="mb-3 mt-3">
-      <label for="ar">ár:</label>
-      <input type="text" class="form-control" id="ar" placeholder="ár" name="ar">
-    </div>
-    <div class="mb-3 mt-3">
-      <label for="darab">darab:</label>
-      <input type="text" class="form-control" id="darab" placeholder="darab" name="darab">
+      <label for="amount">amount:</label>
+      <input type="text" class="form-control" id="amount" placeholder="amount" name="amount">
     </div>
     <div class="mb-3">
-      <label for="kep">kép:</label>
-      <input type="text" class="form-control" id="kep" placeholder="kép" name="kep">
+      <label for="picture">pictures:</label>
+      <input type="text" class="form-control" id="picture" placeholder="pictures" name="picture">
     </div>
     <div class="mb-3">
-      <label for="leiras">leírás:</label>
-      <input type="text" class="form-control" id="leiras" placeholder="leirás" name="leiras">
+      <label for="description">descriptions:</label>
+      <input type="text" class="form-control" id="description" placeholder="description" name="description">
     </div>
     <div class="form-check mb-3">
     </div>
@@ -194,4 +190,4 @@ function adminfelulet() {
 </div>`;
   return txt;
 }
-// az egész oldalt tönkre teszi valami miért a beteszem a kód ba.
+
