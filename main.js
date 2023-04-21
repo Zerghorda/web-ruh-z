@@ -157,9 +157,9 @@ function divek() {
 }
 function adminfelulet() {
   let txt = `<table class="table table-striped">`;
-  for (let i = 0; i < Requested.length; i++) {
+  for (let i = 0; i < UnitList.length; i++) {
     txt += `<tr>
-            <td>${Requested[i].termek}</td><td>${Requested[i].ar}</td><td>${Requested[i].darab}</td><td><img src="${Requested[i].kep}" class="adminkep"></td><td>${Requested[i].leiras}</td><td><button class="jobboldal" id="${i}" onclick="deleteterlist(event)">X</button></td>
+            <td>${UnitList[i].Unit}</td><td>${UnitList[i].darab}</td><td><img src="${UnitList[i].kep}" class="adminkep"></td><td>${UnitList[i].description}</td><td><button class="jobboldal" id="${i}" onclick="deleteterlist(event)">X</button></td>
             </tr>`;
   }
   txt += `</table>`;
@@ -168,20 +168,20 @@ function adminfelulet() {
   <h2>Feltöltés</h2>
   <form action="/action_page.php">
     <div class="mb-3 mt-3">
-      <label for="Units">Units:</label>
-      <input type="text" class="form-control" id="Units" placeholder="Units" name="Units">
+      <label for="Unit">Units:</label>
+      <input type="text" class="form-control" id="Unit" placeholder="Units" name="Unit">
     </div>
     <div class="mb-3 mt-3">
-      <label for="amount">amount:</label>
-      <input type="text" class="form-control" id="amount" placeholder="amount" name="amount">
+      <label for="darab">amount:</label>
+      <input type="text" class="form-control" id="darab" placeholder="amount" name="darab">
     </div>
     <div class="mb-3">
-      <label for="picture">pictures:</label>
-      <input type="text" class="form-control" id="picture" placeholder="pictures" name="picture">
+      <label for="kep">images:</label>
+      <input type="text" class="form-control" id="kep" placeholder="images" name="kep">
     </div>
     <div class="mb-3">
       <label for="description">descriptions:</label>
-      <input type="text" class="form-control" id="description" placeholder="description" name="description">
+      <input type="text" class="form-control" id="description" placeholder="descriptions" name="description">
     </div>
     <div class="form-check mb-3">
     </div>
