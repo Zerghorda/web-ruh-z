@@ -27,7 +27,6 @@ $(function () {
     );
     ARTICLE.html(divek);
   });
-
   $(".link2").on("click", KOSAR, function () {
     let kosar1 = "";
     for (let i = 0; i < Requested.length; i++) {
@@ -35,7 +34,7 @@ $(function () {
       kosar1 += `<h2 class="card-header">${UnitList[Requested[i]].Unit}</h2>`;
       kosar1 += `<img src="${
         UnitList[Requested[i]].kep
-      }" class="rounded" alt="units"><br>`;
+      }" class="img-thumbnail img-fluid" alt="units"><br>`;
       kosar1 += `<p class="card-body "> amount: ${
         UnitList[Requested[i]].darab
       }</p><br>`;
@@ -43,18 +42,19 @@ $(function () {
           </div>`;
       kosar1 += `</div>`;
     }
-    $(".linkek3").on("click", ADMIN, function () {
-      FOCIM.html(`<h1>Admin page<h1>`);
-      ARTICLE.html(adminfelulet);
-      FOOTER.html(null);
-    });
+
     FOCIM.html(
       `<div class="bg-secondary p-3"><h1 class="text-danger">Requested units<h1></div>`
     );
     ARTICLE.html(kosar1);
     FOOTER.html(kosar);
   });
-
+  $(".link3").on("click", ADMIN, function () {
+    FOCIM.html(`<h1>Admin page<h1>`);
+    ARTICLE.html(adminfelulet());
+    FOOTER.html(null);
+    console.log(adminfelulet);
+  });
   function unitamount() {
     let ertek = 0;
     for (let i = 0; i < Requested.length; i++) {
@@ -74,7 +74,7 @@ $(function () {
         <a class="kosarTart nav-link btn btn-danger href="#" id="kosarTart">Request</a>
       </li>
       <li class="link3 nav-item">
-      <a class="kosarTart nav-link btn btn-danger href="#" id="adminTart">Admin</a>
+      <a class="adminTart nav-link btn btn-danger href="#" id="adminTart">Admin</a>
     </li>
     </ul>
   </div>`;
@@ -93,7 +93,7 @@ $(function () {
     <div class="modal-body">
     <div class="card">
     
-    <img src="${UnitList[id].kep}" class="cardImg" alt="units"><br>
+    <img src="${UnitList[id].kep}" class="img-thumbnail img-fluid" alt="units"><br>
     <p class="card-body"> description: ${UnitList[id].description}</p><br>
     <div class="card-footer btn-group">
     </div>
@@ -122,7 +122,7 @@ function divek() {
   for (let i = 0; i < UnitList.length; i++) {
     txt += `<div class="bg-dark p-3 card col-lg-4 col-md-6 col-sm-8">`;
     txt += `<h2 class="card-header text-danger">${UnitList[i].Unit}</h2>`;
-    txt += `<img src="${UnitList[i].kep}" class="cardImg" alt="units"><br>`;
+    txt += `<div class="kepcont"><img src="${UnitList[i].kep}" class="img-thumbnail img-fluid" alt="units"></div>`;
     txt += `<p class="card-body text-danger"> amount: ${UnitList[i].darab}</p><br>`;
     txt += `<div class="card-footer btn-group">
           <button class="info btn btn-dark text-danger" data-bs-toggle="modal" data-bs-target="#myModal" id="${i}">Info</button>
@@ -152,45 +152,42 @@ function divek() {
     </div>
   </div>
 </div>`;
+
   return txt;
 }
-// az egész oldalt tönkre teszi valami miért a beteszem a kód ba.
-/* function adminfelulet() {
-    let txt = `<table class="table table-striped">`;
-    for (let i = 0; i < TERMEKLISTA.length; i++) {
-      txt += `<tr>
-                <td>${TERMEKLISTA[i].termek}</td><td>${TERMEKLISTA[i].ar}</td><td>${TERMEKLISTA[i].darab}</td><td><img src="${TERMEKLISTA[i].kep}" class="adminkep"></td><td>${TERMEKLISTA[i].leiras}</td><td><button class="jobboldal" id="${i}" onclick="deleteterlist(event)">X</button></td>
-                </tr>`;
-    }
-    txt += `</table>`;
-  
-    txt += `<div class="container mt-3">
-      <h2>Feltöltés</h2>
-      <form action="/action_page.php">
-        <div class="mb-3 mt-3">
-          <label for="termek">Termék neve:</label>
-          <input type="text" class="form-control" id="termek" placeholder="termék" name="termek">
-        </div>
-        <div class="mb-3 mt-3">
-          <label for="ar">ár:</label>
-          <input type="text" class="form-control" id="ar" placeholder="ár" name="ar">
-        </div>
-        <div class="mb-3 mt-3">
-          <label for="darab">darab:</label>
-          <input type="text" class="form-control" id="darab" placeholder="darab" name="darab">
-        </div>
-        <div class="mb-3">
-          <label for="kep">kép:</label>
-          <input type="text" class="form-control" id="kep" placeholder="kép" name="kep">
-        </div>
-        <div class="mb-3">
-          <label for="leiras">leírás:</label>
-          <input type="text" class="form-control" id="leiras" placeholder="leirás" name="leiras">
-        </div>
-        <div class="form-check mb-3">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </div>`;
-    
-  } */
+function adminfelulet() {
+  let txt = `<table class="table table-striped">`;
+  for (let i = 0; i < UnitList.length; i++) {
+    txt += `<tr>
+            <td>${UnitList[i].Unit}</td><td>${UnitList[i].darab}</td><td><img src="${UnitList[i].kep}" class="adminkep"></td><td>${UnitList[i].description}</td><td><button class="jobboldal" id="${i}" onclick="deleteterlist(event)">X</button></td>
+            </tr>`;
+  }
+  txt += `</table>`;
+
+  txt += `<div class="container mt-3">
+  <h2>Feltöltés</h2>
+  <form action="/action_page.php">
+    <div class="mb-3 mt-3">
+      <label for="Unit">Units:</label>
+      <input type="text" class="form-control" id="Unit" placeholder="Units" name="Unit">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="darab">amount:</label>
+      <input type="text" class="form-control" id="darab" placeholder="amount" name="darab">
+    </div>
+    <div class="mb-3">
+      <label for="kep">images:</label>
+      <input type="text" class="form-control" id="kep" placeholder="images" name="kep">
+    </div>
+    <div class="mb-3">
+      <label for="description">descriptions:</label>
+      <input type="text" class="form-control" id="description" placeholder="descriptions" name="description">
+    </div>
+    <div class="form-check mb-3">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>`;
+  return txt;
+}
+
